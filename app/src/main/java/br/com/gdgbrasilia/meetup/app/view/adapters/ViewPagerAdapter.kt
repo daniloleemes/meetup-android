@@ -1,4 +1,4 @@
-package br.com.firstsoft.opentheater.adapter
+package br.com.gdgbrasilia.meetup.app.view.adapters
 
 import android.content.Context
 import android.support.v4.app.Fragment

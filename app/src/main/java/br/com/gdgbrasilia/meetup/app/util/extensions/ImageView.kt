@@ -7,6 +7,7 @@ import android.support.v4.content.ContextCompat
 import android.widget.ImageView
 import br.com.gdgbrasilia.meetup.R
 import br.com.gdgbrasilia.meetup.app.data.AppConstants
+import br.com.gdgbrasilia.meetup.app.view.components.GlideApp
 
 fun ImageView.setMarked(liked: Boolean, markedColor: Int = R.color.colorPurple) {
     val colorFrom: Int

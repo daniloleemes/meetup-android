@@ -1,4 +1,4 @@
-package br.com.firstsoft.opentheater.activities
+package br.com.gdgbrasilia.meetup.app.view.activities
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -7,12 +7,12 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.MenuItem
-import br.com.firstsoft.opentheater.R
-import br.com.firstsoft.opentheater.adapter.ThumbAdapter
-import br.com.firstsoft.opentheater.model.Movie
-import br.com.firstsoft.opentheater.model.enums.ListType
-import br.com.firstsoft.opentheater.view.EndlessRecyclerViewScrollListener
-import br.com.firstsoft.opentheater.viewmodel.MovieViewModel
+import br.com.gdgbrasilia.meetup.R
+import br.com.gdgbrasilia.meetup.app.model.Movie
+import br.com.gdgbrasilia.meetup.app.model.enums.ListType
+import br.com.gdgbrasilia.meetup.app.view.adapters.ThumbAdapter
+import br.com.gdgbrasilia.meetup.app.view.components.EndlessRecyclerScrollListener
+import br.com.gdgbrasilia.meetup.app.view.viewmodel.MovieViewModel
 import kotlinx.android.synthetic.main.activity_see_more.*
 
 class SeeMoreActivity : AppCompatActivity() {
@@ -40,7 +40,7 @@ class SeeMoreActivity : AppCompatActivity() {
         recyclerSeeMore.layoutManager = layoutManager
         recyclerSeeMore.scrollToPosition(firstItemVisible ?: 0)
         recyclerSeeMore.post { supportStartPostponedEnterTransition() }
-        recyclerSeeMore.addOnScrollListener(object : EndlessRecyclerViewScrollListener(layoutManager) {
+        recyclerSeeMore.addOnScrollListener(object : EndlessRecyclerScrollListener(layoutManager) {
             override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView?) {
                 when (type) {
                     ListType.SEARCH -> movieVM.search(searchQuery

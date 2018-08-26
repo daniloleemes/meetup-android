@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#fff"
     android:orientation="vertical"
-    tools:context="br.com.firstsoft.opentheater.activities.SeeMoreActivity">
+    tools:context="br.com.gdgbrasilia.meetup.app.view.activities.SeeMoreActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"

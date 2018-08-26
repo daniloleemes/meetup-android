@@ -82,6 +82,7 @@
                 android:layout_height="?attr/actionBarSize"
                 android:theme="@style/AppTheme.PopupOverlay"
                 app:layout_collapseMode="pin"
+                app:layout_scrollFlags="scroll|enterAlways"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
 
         </android.support.design.widget.CollapsingToolbarLayout>
@@ -95,9 +96,9 @@
 
         <LinearLayout
             android:id="@+id/content"
-            android:nestedScrollingEnabled="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="true"
             android:orientation="vertical">
 
             <include layout="@layout/layout_status_bar_detail" />
@@ -242,8 +243,8 @@
                     android:id="@+id/progressRecommendations"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:layout_marginTop="12dp"
                     android:layout_gravity="center"
+                    android:layout_marginTop="12dp"
                     android:visibility="visible" />
 
                 <android.support.v7.widget.RecyclerView
@@ -273,6 +274,7 @@
         android:src="@drawable/ic_play"
         app:backgroundTint="#ff0000"
         app:layout_anchor="@id/appBarLayout"
+        app:layout_behavior="br.com.gdgbrasilia.meetup.app.view.components.ScrollAwareFABBehavior"
         app:layout_anchorGravity="bottom|right|end" />
 
 </android.support.design.widget.CoordinatorLayout>

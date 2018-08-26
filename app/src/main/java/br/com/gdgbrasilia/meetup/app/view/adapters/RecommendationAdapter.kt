@@ -1,12 +1,12 @@
-package br.com.firstsoft.opentheater.adapter
+package br.com.gdgbrasilia.meetup.app.view.adapters
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import br.com.firstsoft.opentheater.R
-import br.com.firstsoft.opentheater.model.Movie
-import br.com.firstsoft.opentheater.viewholder.RecommendationViewHolder
+import br.com.gdgbrasilia.meetup.R
+import br.com.gdgbrasilia.meetup.app.model.Movie
+import br.com.gdgbrasilia.meetup.app.view.viewholder.RecommendationViewHolder
 
 
 /**
@@ -14,11 +14,11 @@ import br.com.firstsoft.opentheater.viewholder.RecommendationViewHolder
  */
 class RecommendationAdapter(val list: MutableList<Movie>, val context: Context, val listener: (Movie) -> Unit) : RecyclerView.Adapter<RecommendationViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecommendationViewHolder = RecommendationViewHolder(LayoutInflater.from(context).inflate(R.layout.holder_movie_playing, parent, false), context, listener)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecommendationViewHolder = RecommendationViewHolder(LayoutInflater.from(context).inflate(R.layout.holder_movie_playing, parent, false), context, listener)
 
     override fun getItemCount(): Int = list.size
 
-    override fun onBindViewHolder(holder: RecommendationViewHolder?, position: Int) = holder?.bind(list[position])!!
+    override fun onBindViewHolder(holder: RecommendationViewHolder, position: Int) = holder.bind(list[position])
 
     fun addAll(list: List<Movie>) {
         this.list.addAll(list)

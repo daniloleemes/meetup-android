@@ -1,7 +1,9 @@
 package br.com.gdgbrasilia.meetup.app.data
 
 object AppConstants {
-    val BASE_URL = "https://placestogo.behappe.com.br"
+    val BASE_URL = "https://api.themoviedb.org/3/"
+    val IMAGE_PATH = "https://image.tmdb.org/t/p/w780"
+    val THUMB_PATH = "https://image.tmdb.org/t/p/w300"
 //    val BASE_URL = "http://192.168.0.23:8081/"
 
     val CAMERA_PERMISSION = android.Manifest.permission.CAMERA

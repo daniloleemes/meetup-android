@@ -1,7 +1,7 @@
-package br.com.firstsoft.opentheater.repository
+package br.com.gdgbrasilia.meetup.app.data.repository
 
-import br.com.firstsoft.opentheater.model.AppResponse
-import br.com.firstsoft.opentheater.model.Movie
+import br.com.gdgbrasilia.meetup.app.model.AppResponse
+import br.com.gdgbrasilia.meetup.app.model.Movie
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

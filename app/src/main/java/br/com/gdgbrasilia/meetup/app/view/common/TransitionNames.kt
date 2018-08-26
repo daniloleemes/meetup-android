@@ -1,4 +1,4 @@
-package br.com.firstsoft.opentheater.application
+package br.com.gdgbrasilia.meetup.app.view.common
 
 /**
  * Created by danilolemes on 28/02/2018.

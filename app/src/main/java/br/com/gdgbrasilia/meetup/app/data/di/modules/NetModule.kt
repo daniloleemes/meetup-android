@@ -2,7 +2,7 @@ package br.com.gdgbrasilia.meetup.app.data.di.modules
 
 import android.app.Application
 import android.content.SharedPreferences
-import br.com.gdgbrasilia.meetup.app.R
+import br.com.gdgbrasilia.meetup.R
 import br.com.gdgbrasilia.meetup.app.data.AppConstants
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -61,17 +61,12 @@ class NetModule {
             val originalHttpUrl = original.url()
 
             val url = originalHttpUrl.newBuilder()
+                    .addQueryParameter("api_key", context.getString(R.string.token))
                     .build()
 
             val requestBuilder = original.newBuilder()
                     .addHeader("accept", "application/json")
-//                    .addHeader("x-api-key", context.getString(R.string.x_app_key))
                     .url(url)
-
-            val cookie = sharedPreferences.getString(context.getString(R.string.cookie), "")
-            if (cookie.isNotEmpty()) {
-                requestBuilder.addHeader(context.getString(R.string.cookie), cookie)
-            }
 
             val request = requestBuilder.build()
             val response = chain.proceed(request)

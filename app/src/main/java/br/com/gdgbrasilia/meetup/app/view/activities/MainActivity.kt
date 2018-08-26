@@ -1,4 +1,4 @@
-package br.com.firstsoft.opentheater.activities
+package br.com.gdgbrasilia.meetup.app.view.activities
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -11,13 +11,13 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import br.com.firstsoft.opentheater.R
-import br.com.firstsoft.opentheater.adapter.ThumbAdapter
-import br.com.firstsoft.opentheater.application.AppApplication
-import br.com.firstsoft.opentheater.application.TransitionNames
-import br.com.firstsoft.opentheater.model.enums.ListType
-import br.com.firstsoft.opentheater.viewholder.ThumbViewHolder
-import br.com.firstsoft.opentheater.viewmodel.MovieViewModel
+import br.com.gdgbrasilia.meetup.R
+import br.com.gdgbrasilia.meetup.app.data.AppApplication
+import br.com.gdgbrasilia.meetup.app.model.enums.ListType
+import br.com.gdgbrasilia.meetup.app.view.adapters.ThumbAdapter
+import br.com.gdgbrasilia.meetup.app.view.common.TransitionNames
+import br.com.gdgbrasilia.meetup.app.view.viewholder.ThumbViewHolder
+import br.com.gdgbrasilia.meetup.app.view.viewmodel.MovieViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

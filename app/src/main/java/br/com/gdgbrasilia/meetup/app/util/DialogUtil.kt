@@ -2,7 +2,7 @@ package br.com.gdgbrasilia.meetup.app.util
 
 import android.app.ProgressDialog
 import android.content.Context
-import br.com.gdgbrasilia.meetup.app.R
+import br.com.gdgbrasilia.meetup.R
 
 /**
  * Created by danilolemes on 23/12/2017.

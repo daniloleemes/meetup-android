@@ -1,10 +1,10 @@
-package br.com.firstsoft.opentheater.activities
+package br.com.gdgbrasilia.meetup.app.view.activities
 
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import br.com.firstsoft.opentheater.R
-import br.com.firstsoft.opentheater.viewmodel.LauncherViewModel
+import br.com.gdgbrasilia.meetup.R
+import br.com.gdgbrasilia.meetup.app.view.viewmodel.LauncherViewModel
 
 class LauncherActivity : AppCompatActivity() {
 

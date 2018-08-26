@@ -1,4 +1,4 @@
-package br.com.firstsoft.opentheater.viewholder
+package br.com.gdgbrasilia.meetup.app.view.viewholder
 
 import android.app.Activity
 import android.content.Context
@@ -8,10 +8,10 @@ import android.support.v4.app.ActivityOptionsCompat
 import android.support.v4.util.Pair
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import br.com.firstsoft.opentheater.activities.DetailActivity
-import br.com.firstsoft.opentheater.application.AppApplication.Companion.THUMB_PATH
-import br.com.firstsoft.opentheater.application.TransitionNames
-import br.com.firstsoft.opentheater.model.Movie
+import br.com.gdgbrasilia.meetup.app.data.AppConstants.THUMB_PATH
+import br.com.gdgbrasilia.meetup.app.model.Movie
+import br.com.gdgbrasilia.meetup.app.view.activities.DetailActivity
+import br.com.gdgbrasilia.meetup.app.view.common.TransitionNames
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.holder_movie_playing.view.*
 

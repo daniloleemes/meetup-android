@@ -2,7 +2,7 @@ package br.com.gdgbrasilia.meetup.app.data.util
 
 import android.content.Context
 import android.widget.Toast
-import br.com.gdgbrasilia.meetup.app.business.vo.AppResponse
+import br.com.gdgbrasilia.meetup.app.model.AppResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

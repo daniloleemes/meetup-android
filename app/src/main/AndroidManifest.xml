@@ -1,11 +1,52 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.gdgbrasilia.meetup">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
+        android:name=".app.data.AppApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" />
+        android:theme="@style/AppTheme">
+
+
+        <activity
+            android:name=".app.view.activities.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".app.view.activities.DetailActivity"
+            android:launchMode="singleTask"
+            android:parentActivityName=".app.view.activities.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".app.view.activities.LauncherActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".app.view.activities.GalleryActivity"
+            android:launchMode="singleTask"
+            android:parentActivityName=".app.view.activities.DetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".app.view.activities.SearchActivity"
+            android:launchMode="singleTask"
+            android:parentActivityName=".app.view.activities.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".app.view.activities.SeeMoreActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+    </application>
 </manifest>

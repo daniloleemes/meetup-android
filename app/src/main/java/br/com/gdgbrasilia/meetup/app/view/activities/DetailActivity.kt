@@ -1,25 +1,25 @@
-package br.com.firstsoft.opentheater.activities
+package br.com.gdgbrasilia.meetup.app.view.activities
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
-import android.graphics.PorterDuff
 import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
 import android.support.v4.view.ViewCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.MenuItem
 import android.view.View
-import br.com.firstsoft.opentheater.R
-import br.com.firstsoft.opentheater.adapter.GalleryAdapter
-import br.com.firstsoft.opentheater.adapter.RecommendationAdapter
-import br.com.firstsoft.opentheater.application.AppApplication
-import br.com.firstsoft.opentheater.application.TransitionNames
-import br.com.firstsoft.opentheater.model.Movie
-import br.com.firstsoft.opentheater.viewmodel.MovieViewModel
+import br.com.gdgbrasilia.meetup.R
+import br.com.gdgbrasilia.meetup.app.data.AppApplication
+import br.com.gdgbrasilia.meetup.app.data.AppConstants
+import br.com.gdgbrasilia.meetup.app.data.AppStatics
+import br.com.gdgbrasilia.meetup.app.model.Movie
+import br.com.gdgbrasilia.meetup.app.view.adapters.GalleryAdapter
+import br.com.gdgbrasilia.meetup.app.view.adapters.RecommendationAdapter
+import br.com.gdgbrasilia.meetup.app.view.common.TransitionNames
+import br.com.gdgbrasilia.meetup.app.view.viewmodel.MovieViewModel
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.layout_status_bar_detail.*
@@ -84,7 +84,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     fun setupViews(movie: Movie) {
-        Glide.with(movieCover).load(AppApplication.IMAGE_PATH + movie.poster_path).into(movieCover)
+        Glide.with(movieCover).load(AppConstants.IMAGE_PATH + movie.poster_path).into(movieCover)
         movieRating.rating = movie.vote_average / 2
 
         movieLang.text = movie.original_language.capitalize()
@@ -97,7 +97,7 @@ class DetailActivity : AppCompatActivity() {
 
         movieOverview.text = movie.overview
         movieReleaseDate.text = movie.release_date.replace('-', '.')
-        movieGenres.text = AppApplication.genres.filter { movie.genre_ids.contains(it.id) }.joinToString(", ") { it.name }
+        movieGenres.text = AppStatics.genres.filter { movie.genre_ids.contains(it.id) }.joinToString(", ") { it.name }
 
 
         movieCover.setOnClickListener {
@@ -148,26 +148,26 @@ class DetailActivity : AppCompatActivity() {
 
         val upArrow = resources.getDrawable(R.drawable.ic_back);
 
-        appBarLayout.addOnOffsetChangedListener({ _, verticalOffset ->
-            if (verticalOffset == 0) {
-                fabVideo.show()
-            } else {
-                fabVideo.hide(object : FloatingActionButton.OnVisibilityChangedListener() {
-                    override fun onHidden(fab: FloatingActionButton?) {
-                        super.onShown(fab)
-                        fab!!.visibility = View.INVISIBLE
-                    }
-                })
-            }
-
-            if (verticalOffset < -590) {
-                upArrow.setColorFilter(resources.getColor(R.color.colorPrimaryDark), PorterDuff.Mode.SRC_ATOP)
-                supportActionBar?.setHomeAsUpIndicator(upArrow)
-            } else {
-                upArrow.setColorFilter(resources.getColor(R.color.colorBackground), PorterDuff.Mode.SRC_ATOP)
-                supportActionBar?.setHomeAsUpIndicator(upArrow)
-            }
-        })
+//        appBarLayout.addOnOffsetChangedListener { _, verticalOffset ->
+//            if (verticalOffset == 0) {
+//                fabVideo.show()
+//            } else {
+//                fabVideo.hide(object : FloatingActionButton.OnVisibilityChangedListener() {
+//                    override fun onHidden(fab: FloatingActionButton?) {
+//                        super.onShown(fab)
+//                        fab!!.visibility = View.INVISIBLE
+//                    }
+//                })
+//            }
+//
+//            if (verticalOffset < -590) {
+//                upArrow.setColorFilter(resources.getColor(R.color.colorPrimaryDark), PorterDuff.Mode.SRC_ATOP)
+//                supportActionBar?.setHomeAsUpIndicator(upArrow)
+//            } else {
+//                upArrow.setColorFilter(resources.getColor(R.color.colorBackground), PorterDuff.Mode.SRC_ATOP)
+//                supportActionBar?.setHomeAsUpIndicator(upArrow)
+//            }
+//        }
     }
 
     private fun setupCoordinatorLayout(titulo: String) {

@@ -1,4 +1,4 @@
-package br.com.firstsoft.opentheater.model
+package br.com.gdgbrasilia.meetup.app.model
 
 import java.io.Serializable
 

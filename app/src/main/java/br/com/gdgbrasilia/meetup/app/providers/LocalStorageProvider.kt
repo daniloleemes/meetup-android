@@ -13,7 +13,7 @@ import android.provider.DocumentsContract
 import android.provider.DocumentsProvider
 import android.util.Log
 import android.webkit.MimeTypeMap
-import br.com.gdgbrasilia.meetup.app.R
+import br.com.gdgbrasilia.meetup.R
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileOutputStream

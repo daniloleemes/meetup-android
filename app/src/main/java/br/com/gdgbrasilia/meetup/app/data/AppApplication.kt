@@ -29,8 +29,6 @@ class AppApplication : Application() {
 
         instance = this
 
-//        JodaTimeAndroid.init(this)
-
         NetComponent = DaggerNetComponent.builder()
                 .appModule(AppModule(this))
                 .netModule(NetModule())
