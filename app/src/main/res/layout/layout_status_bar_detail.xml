@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/status_bar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="33dp">
+
+    <LinearLayout
+        android:id="@+id/wrapperLength"
+        android:layout_width="0dp"
+        android:layout_weight="0.33"
+        android:gravity="start"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Length"
+            android:textColor="@color/colorTextSecondary"
+            android:textSize="14sp" />
+
+        <ProgressBar
+            android:id="@+id/progressMovieLength"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="start"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/movieLength"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="584"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <!--<View-->
+        <!--android:layout_width="0.1dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignBottom="@id/wrapperLength"-->
+        <!--android:layout_alignTop="@id/wrapperLength"-->
+        <!--android:layout_marginBottom="4dp"-->
+        <!--android:layout_marginLeft="25dp"-->
+        <!--android:layout_marginRight="25dp"-->
+        <!--android:layout_marginTop="4dp"-->
+        <!--android:layout_toStartOf="@id/wrapperLanguage"-->
+        <!--android:background="#929292" />-->
+
+    <LinearLayout
+        android:id="@+id/wrapperLanguage"
+        android:layout_width="0dp"
+        android:gravity="center"
+        android:layout_weight="0.33"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Language"
+            android:textColor="@color/colorTextSecondary"
+            android:textSize="14sp" />
+
+        <ProgressBar
+            android:id="@+id/progressMovieLang"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_horizontal"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/movieLang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Português"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <!--<View-->
+        <!--android:layout_width="0.1dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignBottom="@id/wrapperLength"-->
+        <!--android:layout_alignTop="@id/wrapperLength"-->
+        <!--android:layout_marginBottom="4dp"-->
+        <!--android:layout_marginLeft="25dp"-->
+        <!--android:layout_marginRight="25dp"-->
+        <!--android:layout_marginTop="4dp"-->
+        <!--android:layout_toEndOf="@id/wrapperLanguage"-->
+        <!--android:background="#929292" />-->
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="0.33"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:layout_marginRight="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Rating"
+            android:textColor="@color/colorTextSecondary"
+            android:textSize="14sp" />
+
+        <ProgressBar
+            android:id="@+id/progressRatingAverage"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="end"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/movieRatingAverage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="6673"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

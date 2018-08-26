@@ -48,10 +48,6 @@
     <color name="colorPink">#FF25B4</color>
 
     <!-- ===== componentes ===== -->
-    <color name="colorPrimary">@color/colorBlueLight</color>
-    <color name="colorPrimaryDark">@color/colorBlue</color>
-    <color name="colorAccent">@color/colorOrange</color>
-    <color name="colorBackground">@color/colorWhite</color>
     <color name="colorCardBackground">@color/colorPureWhite</color>
     <color name="colorFontHeading">@color/colorBlueDark</color>
     <color name="colorFontBody">@color/colorGray</color>
@@ -59,6 +55,12 @@
     <color name="colorFontLabel">@color/colorGrayLight</color>
     <color name="colorIcon">@color/colorGrayLighter</color>
     <color name="colorShadow">@color/colorBrightBlue</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorTextPrimary">#666666</color>
+    <color name="colorTextSecondary">#929292</color>
+    <color name="colorBackground">#fff</color>
 
     <!-- ===== degrades ===== -->
     <color name="gradientBlueStart">@color/colorBlueLight</color>

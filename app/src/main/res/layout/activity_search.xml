@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="br.com.firstsoft.opentheater.activities.SearchActivity">
+
+    <LinearLayout
+        android:id="@+id/searchFieldWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/searchField"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="28dp"
+            android:layout_weight="0.9"
+            android:background="@drawable/background_search_field"
+            android:drawablePadding="16dp"
+            android:drawableStart="@drawable/ic_search"
+            android:fontFamily="@font/poppins_medium"
+            android:hint="Search...."
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:paddingStart="16dp"
+            android:textColor="@color/colorTextPrimary"
+            android:textColorHint="@color/colorTextSecondary" />
+
+        <Button
+            android:id="@+id/cancelSearchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:layout_marginTop="28dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Cancel"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/searchFieldWrapper"
+        android:fillViewport="true">
+
+
+        <RelativeLayout
+            android:id="@+id/upcomingWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_gradient_upcoming">
+
+            <TextView
+                android:id="@+id/resultsHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Results"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/seeMoreBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/resultsHeader"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@id/resultsHeader"
+                android:layout_marginRight="30dp"
+                android:drawableEnd="@drawable/ic_chevron"
+                android:fontFamily="@font/poppins_bold"
+                android:gravity="center_vertical"
+                android:text="see more"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="12sp" />
+
+            <ProgressBar
+                android:id="@+id/progressSearch"
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@id/resultsHeader"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content" />
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerResults"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/resultsHeader"
+                android:layout_marginBottom="12dp"
+                android:layout_marginTop="12dp"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                android:paddingLeft="30dp" />
+
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</RelativeLayout>

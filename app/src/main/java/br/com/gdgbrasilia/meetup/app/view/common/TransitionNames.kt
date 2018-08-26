@@ -1,8 +1,12 @@
-package br.com.gdgbrasilia.meetup.app.view.common
+package br.com.firstsoft.opentheater.application
 
-object TransitionNames {
-    val IMAGE_TRANSITION_NAME = "transitionImage"
-    val TITLE_TRANSITION_NAME = "transitionTitle"
-    val AUTHOR_TRANSITION_NAME = "transitionAuthor"
-    val SEARCH_LAYOUT_TRANSITION_NAME = "transitionSearchLayout"
+/**
+ * Created by danilolemes on 28/02/2018.
+ */
+class TransitionNames {
+    companion object {
+        const val POSTER = "COVER_TRANSITION"
+        const val RATING = "RATING_TRANSITION"
+        const val SEARCH_FIELD = "SEARCH_FIELD_TRANSITION"
+    }
 }

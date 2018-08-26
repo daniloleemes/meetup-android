@@ -1,29 +1,29 @@
-package br.com.gdgbrasilia.meetup.app.view.adapters
+package br.com.firstsoft.opentheater.adapter
 
+import android.content.Context
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
-import java.util.*
 
-class ViewPagerAdapter(manager: FragmentManager) : FragmentStatePagerAdapter(manager) {
+/**
+ * Created by danilolemes on 01/03/2018.
+ */
+class ViewPagerAdapter(fragmentManager: FragmentManager, private val context: Context) : FragmentStatePagerAdapter(fragmentManager) {
 
-    private val mFragmentList = ArrayList<Fragment>()
-    private val mFragmentTitleList = ArrayList<String>()
+    private val mFragmentList = mutableListOf<Fragment>()
+    private val mFragmentTitleList = mutableListOf<String>()
 
-    override fun getItem(position: Int): Fragment {
-        return mFragmentList[position]
-    }
+    override fun getItem(position: Int): Fragment = mFragmentList[position]
 
-    override fun getCount(): Int {
-        return mFragmentList.size
-    }
+    override fun getCount(): Int  = mFragmentList.size
+
+    override fun getPageTitle(position: Int): CharSequence = mFragmentTitleList[position]
 
     fun addFragment(fragment: Fragment, title: String) {
         mFragmentList.add(fragment)
         mFragmentTitleList.add(title)
+        this.notifyDataSetChanged()
     }
 
-    override fun getPageTitle(position: Int): CharSequence? {
-        return mFragmentTitleList[position]
-    }
+
 }

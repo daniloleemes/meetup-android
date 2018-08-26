@@ -1,18 +1,25 @@
-package br.com.gdgbrasilia.meetup.app.view.viewholder
+package br.com.firstsoft.opentheater.viewholder
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import br.com.gdgbrasilia.meetup.app.business.vo.AppFoto
-import br.com.gdgbrasilia.meetup.app.data.AppConstants.BASE_URL
-import br.com.gdgbrasilia.meetup.app.util.extensions.loadImg
-import kotlinx.android.synthetic.main.holder_gallery.view.*
+import br.com.firstsoft.opentheater.application.AppApplication.Companion.THUMB_PATH
+import br.com.firstsoft.opentheater.model.MovieImage
+import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.holder_movie_gallery.view.*
 
-class GalleryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+/**
+ * Created by danilolemes on 01/03/2018.
+ */
+class GalleryViewHolder(view: View, listener: (View.OnClickListener)) : RecyclerView.ViewHolder(view) {
 
-    val localPicture = view.localPicture
+    init {
+        view.setOnClickListener(listener)
+    }
 
-    fun bind(image: AppFoto) {
-        localPicture.loadImg("$BASE_URL${image.url}")
+    val image = view.galleryImage
+
+    fun bind(movieImage: MovieImage) {
+        Glide.with(image).load(THUMB_PATH + movieImage.file_path).into(image)
     }
 
 }
