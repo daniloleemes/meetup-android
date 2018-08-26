@@ -2,17 +2,24 @@ package br.com.gdgbrasilia.meetup.app.view.viewmodel
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import android.widget.ProgressBar
-import br.com.gdgbrasilia.meetup.app.model.Movie
-import br.com.gdgbrasilia.meetup.app.model.MovieImage
-import br.com.gdgbrasilia.meetup.app.model.Video
+import br.com.gdgbrasilia.meetup.app.business.vo.Movie
+import br.com.gdgbrasilia.meetup.app.business.vo.MovieImage
+import br.com.gdgbrasilia.meetup.app.business.vo.Video
+import br.com.gdgbrasilia.meetup.app.data.AppApplication.Companion.RepositoryComponent
+import br.com.gdgbrasilia.meetup.app.data.service.MovieService
+import javax.inject.Inject
 
 /**
  * Created by danilolemes on 28/02/2018.
  */
 class MovieViewModel : ViewModel() {
-//
-//    private val movieService by lazy { MovieService() }
+
+    @Inject
+    lateinit var movieService: MovieService
+
+    init {
+        RepositoryComponent.inject(this)
+    }
 
     var upcomingMovies: MutableLiveData<List<Movie>> = MutableLiveData()
     var searchResult: MutableLiveData<MutableList<Movie>> = MutableLiveData()
@@ -24,91 +31,55 @@ class MovieViewModel : ViewModel() {
 
 
     fun fetchUpcoming(page: Int = 1): MutableLiveData<List<Movie>> {
-//        movieService.fetchUpcoming(page) { appResponse, throwable ->
-//            throwable?.printStackTrace()
-//            appResponse?.let {
-//                if (it.results != null) {
-//                    upcomingMovies.value = parseList(it.results, Movie::class.java)
-//                } else {
-//                    Toast.makeText(AppApplication.instance.applicationContext, "Não foi possível realizar a busca. Tente novamente.", Toast.LENGTH_SHORT).show()
-//                }
-//            }
-//        }
+        movieService.fetchUpcoming(page) { results ->
+            upcomingMovies.value = results
+        }
+        
         return upcomingMovies
     }
 
     fun fetchGallery(movieID: Int): MutableLiveData<List<MovieImage>> {
-//        movieService.fetchGallery(movieID) { appResponse, throwable ->
-//            throwable?.printStackTrace()
-//            appResponse?.let {
-//                if (it.backdrops != null) {
-//                    gallery.value = it.backdrops
-//                }
-//            }
-//        }
+        movieService.fetchGallery(movieID) { backdrops ->
+            gallery.value = backdrops
+        }
 
         return gallery
     }
 
     fun fetchRecommendations(movieID: Int): MutableLiveData<List<Movie>> {
-//        movieService.fetchRecommendations(movieID) { appResponse, throwable ->
-//            throwable?.printStackTrace()
-//            appResponse?.let {
-//                it.results?.let {
-//                    recommendations.value = parseList(it, Movie::class.java)
-//                }
-//            }
-//        }
+        movieService.fetchRecommendations(movieID) { results ->
+            recommendations.value = results
+        }
 
         return recommendations
     }
 
     fun fetchDetails(movieID: Int): MutableLiveData<Movie> {
-//        movieService.fetchDetails(movieID) { movie, throwable ->
-//            throwable?.printStackTrace()
-//            movie?.let {
-//                this.movie.value = it
-//            }
-//        }
+        movieService.fetchDetails(movieID) { movie, throwable ->
+            this.movie.value = movie
+        }
 
         return this.movie
     }
 
     fun fetchByGenre(genreID: Int) {
-//        movieService.fetchByGenre(genreID) { appResponse, throwable ->
-//            throwable?.printStackTrace()
-//            appResponse?.let {
-//                it.results?.let {
-//                    movies.value = parseList(it, Movie::class.java)
-//                }
-//            }
-//        }
+        movieService.fetchByGenre(genreID) { results ->
+            movies.value = results
+        }
     }
 
     fun fetchVideos(movieID: Int): MutableLiveData<Video> {
-//        movieService.fetchVideos(movieID) { appResponse, throwable ->
-//            throwable?.printStackTrace()
-//            appResponse?.let {
-//                it.results?.let {
-//                    val list = parseList(it, Video::class.java)
-//                    video.value = list.first { it.type == "Trailer" }
-//                }
-//            }
-//        }
+        movieService.fetchVideos(movieID) { videos ->
+            video.value = videos?.firstOrNull { it.type == "Trailer" }
+        }
+
         return video
     }
 
-    fun search(query: String, progressBar: ProgressBar?, page: Int = 1): MutableLiveData<MutableList<Movie>> {
-//        progressBar?.visibility = View.VISIBLE
-//        movieService.search(query, page) { appResponse, throwable ->
-//            progressBar?.visibility = View.GONE
-//            throwable?.printStackTrace()
-//            appResponse?.let {
-//                it.results?.let {
-//                    searchResult.value = parseList(it, Movie::class.java)
-//                }
-//            }
-//        }
+    fun search(query: String, page: Int = 1): MutableLiveData<MutableList<Movie>> {
+        movieService.search(query, page) { results ->
+            searchResult.value = results
+        }
 
         return searchResult
     }

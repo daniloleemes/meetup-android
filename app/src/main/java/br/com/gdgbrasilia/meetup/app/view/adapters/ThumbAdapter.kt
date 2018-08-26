@@ -5,7 +5,7 @@ import android.support.v4.view.ViewCompat
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import br.com.gdgbrasilia.meetup.app.model.Movie
+import br.com.gdgbrasilia.meetup.app.business.vo.Movie
 import br.com.gdgbrasilia.meetup.app.view.common.TransitionNames
 import br.com.gdgbrasilia.meetup.app.view.viewholder.ThumbViewHolder
 

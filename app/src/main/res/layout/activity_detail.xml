@@ -40,6 +40,7 @@
                 <ImageView
                     android:id="@+id/movieCover"
                     android:layout_width="match_parent"
+                    tools:src="@drawable/poster_dois"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop" />
             </FrameLayout>

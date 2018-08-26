@@ -7,7 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.MenuItem
 import br.com.gdgbrasilia.meetup.R
-import br.com.gdgbrasilia.meetup.app.model.Movie
+import br.com.gdgbrasilia.meetup.app.business.vo.Movie
 import br.com.gdgbrasilia.meetup.app.model.enums.ListType
 import br.com.gdgbrasilia.meetup.app.util.extensions.getViewModel
 import br.com.gdgbrasilia.meetup.app.view.adapters.ThumbAdapter
@@ -44,7 +44,7 @@ class SeeMoreActivity : AppCompatActivity() {
             override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView?) {
                 when (type) {
                     ListType.SEARCH -> movieVM.search(searchQuery
-                            ?: "", null, page).observe(this@SeeMoreActivity, searchResultObserver(adapter))
+                            ?: "", page).observe(this@SeeMoreActivity, searchResultObserver(adapter))
                     ListType.UPCOMING -> movieVM.fetchUpcoming(page).observe(this@SeeMoreActivity, upcomingObserver(adapter))
                 }
             }

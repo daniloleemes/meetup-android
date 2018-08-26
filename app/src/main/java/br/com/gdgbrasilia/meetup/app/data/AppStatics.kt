@@ -1,6 +1,6 @@
 package br.com.gdgbrasilia.meetup.app.data
 
-import br.com.gdgbrasilia.meetup.app.model.Genre
+import br.com.gdgbrasilia.meetup.app.business.vo.Genre
 
 object AppStatics {
 

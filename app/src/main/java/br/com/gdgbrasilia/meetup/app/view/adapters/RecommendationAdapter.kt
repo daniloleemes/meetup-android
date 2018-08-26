@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import br.com.gdgbrasilia.meetup.R
-import br.com.gdgbrasilia.meetup.app.model.Movie
+import br.com.gdgbrasilia.meetup.app.business.vo.Movie
 import br.com.gdgbrasilia.meetup.app.view.viewholder.RecommendationViewHolder
 
 

@@ -37,7 +37,7 @@ class SearchActivity : AppCompatActivity() {
         intent?.extras?.getString("query")?.let {
             searchField.text.insert(0, it)
             searchQuery = it
-            movieVM.search(searchQuery, progressSearch).observe(this, Observer { searchResult ->
+            movieVM.search(searchQuery).observe(this, Observer { searchResult ->
                 searchResult?.let {
                     searchAdapter.clear()
                     searchAdapter.addAll(it)
@@ -49,7 +49,7 @@ class SearchActivity : AppCompatActivity() {
     }
 
     fun search() {
-        movieVM.search(searchQuery, progressSearch)
+        movieVM.search(searchQuery)
     }
 
     fun setupView() {

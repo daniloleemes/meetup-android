@@ -6,6 +6,7 @@ import br.com.gdgbrasilia.meetup.app.data.di.scopes.UserScope
 import br.com.gdgbrasilia.meetup.app.data.service.MovieService
 import br.com.gdgbrasilia.meetup.app.data.util.DataParser
 import br.com.gdgbrasilia.meetup.app.view.viewmodel.LauncherViewModel
+import br.com.gdgbrasilia.meetup.app.view.viewmodel.MovieViewModel
 import com.google.gson.Gson
 import dagger.Component
 
@@ -21,4 +22,6 @@ interface RepositoryComponent {
     fun inject(movieService: MovieService)
 
     fun inject(movieService: LauncherViewModel)
+    fun inject(movieViewModel: MovieViewModel)
+
 }

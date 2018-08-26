@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.gdgbrasilia.meetup.R
-import br.com.gdgbrasilia.meetup.app.model.Genre
+import br.com.gdgbrasilia.meetup.app.business.vo.Genre
 import br.com.gdgbrasilia.meetup.app.util.extensions.getViewModel
 import br.com.gdgbrasilia.meetup.app.view.adapters.ThumbAdapter
 import br.com.gdgbrasilia.meetup.app.view.viewmodel.MovieViewModel

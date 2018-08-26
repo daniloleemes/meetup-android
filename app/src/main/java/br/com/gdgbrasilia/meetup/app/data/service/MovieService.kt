@@ -2,13 +2,15 @@
 
 package br.com.gdgbrasilia.meetup.app.data.service
 
+import br.com.gdgbrasilia.meetup.app.business.vo.Genre
+import br.com.gdgbrasilia.meetup.app.business.vo.Movie
+import br.com.gdgbrasilia.meetup.app.business.vo.MovieImage
+import br.com.gdgbrasilia.meetup.app.business.vo.Video
 import br.com.gdgbrasilia.meetup.app.data.AppApplication.Companion.RepositoryComponent
 import br.com.gdgbrasilia.meetup.app.data.repository.MovieRepository
+import br.com.gdgbrasilia.meetup.app.data.util.DataParser
 import br.com.gdgbrasilia.meetup.app.data.util.HttpUtils.Companion.callback
 import br.com.gdgbrasilia.meetup.app.data.util.HttpUtils.Companion.parseResponse
-import br.com.gdgbrasilia.meetup.app.model.AppResponse
-import br.com.gdgbrasilia.meetup.app.model.Genre
-import br.com.gdgbrasilia.meetup.app.model.Movie
 import javax.inject.Inject
 
 /**
@@ -19,26 +21,37 @@ class MovieService {
     @Inject
     lateinit var movieRepository: MovieRepository
 
+    @Inject
+    lateinit var dataParser: DataParser
+
     init {
         RepositoryComponent.inject(this)
     }
 
 
-    fun fetchNowPlaying(listener: (AppResponse?, Throwable?) -> Unit) {
+    fun fetchNowPlaying(listener: (List<Movie>?) -> Unit) {
         movieRepository.fetchNowPlaying().enqueue(parseResponse { appResponse, throwable ->
 
         })
     }
 
-    fun fetchUpcoming(page: Int = 1, listener: (AppResponse?, Throwable?) -> Unit) {
+    fun fetchUpcoming(page: Int = 1, listener: (List<Movie>?) -> Unit) {
         movieRepository.fetchUpcoming(page).enqueue(parseResponse { appResponse, throwable ->
-
+            throwable?.let { listener(null); it.printStackTrace() }
+            appResponse?.let {
+                if (it.results != null) {
+                    listener(dataParser.parseList(it.results, Movie::class.java))
+                } else {
+                    listener(null)
+                }
+            }
         })
     }
 
-    fun fetchGallery(movieID: Int, listener: (AppResponse?, Throwable?) -> Unit) {
+    fun fetchGallery(movieID: Int, listener: (List<MovieImage>?) -> Unit) {
         movieRepository.fetchGallery(movieID).enqueue(parseResponse { appResponse, throwable ->
-
+            throwable?.let { listener(null); it.printStackTrace() }
+            appResponse?.let { listener(it.backdrops) }
         })
     }
 
@@ -49,9 +62,16 @@ class MovieService {
         })
     }
 
-    fun fetchRecommendations(movieID: Int, listener: (AppResponse?, Throwable?) -> Unit) {
+    fun fetchRecommendations(movieID: Int, listener: (List<Movie>?) -> Unit) {
         movieRepository.fetchRecommendations(movieID).enqueue(parseResponse { appResponse, throwable ->
-
+            throwable?.let { listener(null); it.printStackTrace() }
+            appResponse?.let {
+                if (it.results != null) {
+                    listener(dataParser.parseList(it.results, Movie::class.java))
+                } else {
+                    listener(null)
+                }
+            }
         })
     }
 
@@ -63,21 +83,42 @@ class MovieService {
                 { throwable -> listener(null, throwable) }))
     }
 
-    fun fetchByGenre(genreID: Int, listener: (AppResponse?, Throwable?) -> Unit) {
+    fun fetchByGenre(genreID: Int, listener: (List<Movie>?) -> Unit) {
         movieRepository.fetchByGenre(genreID).enqueue(parseResponse { appResponse, throwable ->
-
+            throwable?.let { listener(null); it.printStackTrace() }
+            appResponse?.let {
+                if (it.results != null) {
+                    listener(dataParser.parseList(it.results, Movie::class.java))
+                } else {
+                    listener(null)
+                }
+            }
         })
     }
 
-    fun fetchVideos(movieID: Int, listener: (AppResponse?, Throwable?) -> Unit) {
+    fun fetchVideos(movieID: Int, listener: (List<Video>?) -> Unit) {
         movieRepository.fetchVideos(movieID).enqueue(parseResponse { appResponse, throwable ->
-
+            throwable?.let { listener(null); it.printStackTrace() }
+            appResponse?.let {
+                if (it.results != null) {
+                    listener(dataParser.parseList(it.results, Video::class.java))
+                } else {
+                    listener(null)
+                }
+            }
         })
     }
 
-    fun search(query: String, page: Int = 1, listener: (AppResponse?, Throwable?) -> Unit) {
+    fun search(query: String, page: Int = 1, listener: (MutableList<Movie>?) -> Unit) {
         movieRepository.search(query, page).enqueue(parseResponse { appResponse, throwable ->
-
+            throwable?.let { listener(null); it.printStackTrace() }
+            appResponse?.let {
+                if (it.results != null) {
+                    listener(dataParser.parseList(it.results, Movie::class.java))
+                } else {
+                    listener(null)
+                }
+            }
         })
     }
 

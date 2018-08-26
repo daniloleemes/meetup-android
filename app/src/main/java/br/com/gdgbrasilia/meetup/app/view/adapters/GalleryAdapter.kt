@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.gdgbrasilia.meetup.R
-import br.com.gdgbrasilia.meetup.app.model.MovieImage
+import br.com.gdgbrasilia.meetup.app.business.vo.MovieImage
 import br.com.gdgbrasilia.meetup.app.view.viewholder.GalleryViewHolder
 
 /**

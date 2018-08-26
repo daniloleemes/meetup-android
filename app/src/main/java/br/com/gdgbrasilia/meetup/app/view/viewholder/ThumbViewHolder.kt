@@ -8,8 +8,8 @@ import android.support.v4.app.ActivityOptionsCompat
 import android.support.v4.util.Pair
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import br.com.gdgbrasilia.meetup.app.business.vo.Movie
 import br.com.gdgbrasilia.meetup.app.data.AppConstants.THUMB_PATH
-import br.com.gdgbrasilia.meetup.app.model.Movie
 import br.com.gdgbrasilia.meetup.app.util.extensions.loadImg
 import br.com.gdgbrasilia.meetup.app.view.activities.DetailActivity
 import br.com.gdgbrasilia.meetup.app.view.common.TransitionNames

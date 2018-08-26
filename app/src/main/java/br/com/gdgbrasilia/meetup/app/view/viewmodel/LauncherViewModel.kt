@@ -1,9 +1,9 @@
 package br.com.gdgbrasilia.meetup.app.view.viewmodel
 
 import android.arch.lifecycle.ViewModel
+import br.com.gdgbrasilia.meetup.app.business.vo.Genre
 import br.com.gdgbrasilia.meetup.app.data.AppApplication.Companion.RepositoryComponent
 import br.com.gdgbrasilia.meetup.app.data.service.MovieService
-import br.com.gdgbrasilia.meetup.app.model.Genre
 import javax.inject.Inject
 
 /**

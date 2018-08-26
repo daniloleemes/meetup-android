@@ -12,10 +12,10 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.MenuItem
 import android.view.View
 import br.com.gdgbrasilia.meetup.R
+import br.com.gdgbrasilia.meetup.app.business.vo.Movie
 import br.com.gdgbrasilia.meetup.app.data.AppApplication
 import br.com.gdgbrasilia.meetup.app.data.AppConstants
 import br.com.gdgbrasilia.meetup.app.data.AppStatics
-import br.com.gdgbrasilia.meetup.app.model.Movie
 import br.com.gdgbrasilia.meetup.app.util.extensions.getViewModel
 import br.com.gdgbrasilia.meetup.app.util.extensions.loadImg
 import br.com.gdgbrasilia.meetup.app.view.adapters.GalleryAdapter
@@ -85,7 +85,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     fun setupViews(movie: Movie) {
-        movieCover.loadImg(AppConstants.IMAGE_PATH + movie.poster_path)
+        movieCover.loadImg(AppConstants.THUMB_PATH + movie.poster_path)
         movieRating.rating = movie.vote_average / 2
 
         movieLang.text = movie.original_language.capitalize()

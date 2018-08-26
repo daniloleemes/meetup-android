@@ -3,8 +3,8 @@ package br.com.gdgbrasilia.meetup.app.view.viewholder
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import br.com.gdgbrasilia.meetup.app.business.vo.Movie
 import br.com.gdgbrasilia.meetup.app.data.AppConstants.THUMB_PATH
-import br.com.gdgbrasilia.meetup.app.model.Movie
 import br.com.gdgbrasilia.meetup.app.util.extensions.loadImg
 import kotlinx.android.synthetic.main.holder_movie_playing.view.*
 

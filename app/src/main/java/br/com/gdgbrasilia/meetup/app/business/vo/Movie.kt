@@ -1,4 +1,4 @@
-package br.com.gdgbrasilia.meetup.app.model
+package br.com.gdgbrasilia.meetup.app.business.vo
 
 import java.io.Serializable
 
