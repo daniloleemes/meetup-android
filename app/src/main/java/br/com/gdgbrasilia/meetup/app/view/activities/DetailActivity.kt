@@ -1,8 +1,8 @@
 package br.com.gdgbrasilia.meetup.app.view.activities
 
 import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
+import android.graphics.PorterDuff
 import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
@@ -16,11 +16,12 @@ import br.com.gdgbrasilia.meetup.app.data.AppApplication
 import br.com.gdgbrasilia.meetup.app.data.AppConstants
 import br.com.gdgbrasilia.meetup.app.data.AppStatics
 import br.com.gdgbrasilia.meetup.app.model.Movie
+import br.com.gdgbrasilia.meetup.app.util.extensions.getViewModel
+import br.com.gdgbrasilia.meetup.app.util.extensions.loadImg
 import br.com.gdgbrasilia.meetup.app.view.adapters.GalleryAdapter
 import br.com.gdgbrasilia.meetup.app.view.adapters.RecommendationAdapter
 import br.com.gdgbrasilia.meetup.app.view.common.TransitionNames
 import br.com.gdgbrasilia.meetup.app.view.viewmodel.MovieViewModel
-import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.layout_status_bar_detail.*
 
@@ -28,7 +29,7 @@ import kotlinx.android.synthetic.main.layout_status_bar_detail.*
 class DetailActivity : AppCompatActivity() {
 
     private var movie: Movie? = null
-    private val movieVM by lazy { ViewModelProviders.of(this).get(MovieViewModel::class.java) }
+    private val movieVM by lazy { getViewModel(MovieViewModel::class.java) }
     private val galleryAdapter by lazy { GalleryAdapter(mutableListOf(), galleryClickListener()) }
     private val galleryLayoutManager by lazy { LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false) }
     private val recommendationsAdapter by lazy {
@@ -84,7 +85,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     fun setupViews(movie: Movie) {
-        Glide.with(movieCover).load(AppConstants.IMAGE_PATH + movie.poster_path).into(movieCover)
+        movieCover.loadImg(AppConstants.IMAGE_PATH + movie.poster_path)
         movieRating.rating = movie.vote_average / 2
 
         movieLang.text = movie.original_language.capitalize()
@@ -148,7 +149,7 @@ class DetailActivity : AppCompatActivity() {
 
         val upArrow = resources.getDrawable(R.drawable.ic_back);
 
-//        appBarLayout.addOnOffsetChangedListener { _, verticalOffset ->
+        appBarLayout.addOnOffsetChangedListener { _, verticalOffset ->
 //            if (verticalOffset == 0) {
 //                fabVideo.show()
 //            } else {
@@ -159,15 +160,15 @@ class DetailActivity : AppCompatActivity() {
 //                    }
 //                })
 //            }
-//
-//            if (verticalOffset < -590) {
-//                upArrow.setColorFilter(resources.getColor(R.color.colorPrimaryDark), PorterDuff.Mode.SRC_ATOP)
-//                supportActionBar?.setHomeAsUpIndicator(upArrow)
-//            } else {
-//                upArrow.setColorFilter(resources.getColor(R.color.colorBackground), PorterDuff.Mode.SRC_ATOP)
-//                supportActionBar?.setHomeAsUpIndicator(upArrow)
-//            }
-//        }
+
+            if (verticalOffset < -590) {
+                upArrow.setColorFilter(resources.getColor(R.color.colorPrimaryDark), PorterDuff.Mode.SRC_ATOP)
+                supportActionBar?.setHomeAsUpIndicator(upArrow)
+            } else {
+                upArrow.setColorFilter(resources.getColor(R.color.colorBackground), PorterDuff.Mode.SRC_ATOP)
+                supportActionBar?.setHomeAsUpIndicator(upArrow)
+            }
+        }
     }
 
     private fun setupCoordinatorLayout(titulo: String) {

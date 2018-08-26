@@ -1,7 +1,6 @@
 package br.com.gdgbrasilia.meetup.app.view.activities
 
 import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
@@ -14,6 +13,7 @@ import android.view.inputmethod.EditorInfo
 import br.com.gdgbrasilia.meetup.R
 import br.com.gdgbrasilia.meetup.app.data.AppApplication
 import br.com.gdgbrasilia.meetup.app.model.enums.ListType
+import br.com.gdgbrasilia.meetup.app.util.extensions.getViewModel
 import br.com.gdgbrasilia.meetup.app.view.adapters.ThumbAdapter
 import br.com.gdgbrasilia.meetup.app.view.common.TransitionNames
 import br.com.gdgbrasilia.meetup.app.view.viewholder.ThumbViewHolder
@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val movieVM by lazy { ViewModelProviders.of(this).get(MovieViewModel::class.java) }
+    private val movieVM by lazy { getViewModel(MovieViewModel::class.java) }
     private val upComingAdapter by lazy { ThumbAdapter(mutableListOf(), this, R.layout.holder_movie_playing) }
     private val upComingLayoutManager by lazy { LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false) }
 

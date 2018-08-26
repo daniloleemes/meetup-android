@@ -10,9 +10,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import br.com.gdgbrasilia.meetup.app.data.AppConstants.THUMB_PATH
 import br.com.gdgbrasilia.meetup.app.model.Movie
+import br.com.gdgbrasilia.meetup.app.util.extensions.loadImg
 import br.com.gdgbrasilia.meetup.app.view.activities.DetailActivity
 import br.com.gdgbrasilia.meetup.app.view.common.TransitionNames
-import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.holder_movie_playing.view.*
 
 /**
@@ -34,7 +34,7 @@ class ThumbViewHolder(view: View, val context: Context) : RecyclerView.ViewHolde
         this.movie = movie
         this.title.text = if (movie.title.length > 20) movie.title.substring(0, 17) + "..." else movie.title
         this.rating.rating = movie.vote_average / 2
-        Glide.with(this.poster).load(THUMB_PATH + movie.poster_path).into(this.poster)
+        this.poster.loadImg(THUMB_PATH + movie.poster_path)
     }
 
     override fun onClick(p0: View?) {

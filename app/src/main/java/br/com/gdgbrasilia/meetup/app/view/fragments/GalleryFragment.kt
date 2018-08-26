@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import br.com.gdgbrasilia.meetup.R
 import br.com.gdgbrasilia.meetup.app.data.AppConstants
-import com.bumptech.glide.Glide
+import br.com.gdgbrasilia.meetup.app.util.extensions.loadImg
 import kotlinx.android.synthetic.main.fragment_gallery.*
 
 /**
@@ -21,7 +21,7 @@ class GalleryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         arguments?.getString("path")?.let {
-            Glide.with(galleryImage).load(AppConstants.IMAGE_PATH + it).into(galleryImage)
+            galleryImage.loadImg(AppConstants.IMAGE_PATH + it)
         }
     }
 }

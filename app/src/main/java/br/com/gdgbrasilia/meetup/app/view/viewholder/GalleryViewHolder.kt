@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import br.com.gdgbrasilia.meetup.app.data.AppConstants.THUMB_PATH
 import br.com.gdgbrasilia.meetup.app.model.MovieImage
-import com.bumptech.glide.Glide
+import br.com.gdgbrasilia.meetup.app.util.extensions.loadImg
 import kotlinx.android.synthetic.main.holder_movie_gallery.view.*
 
 /**
@@ -19,7 +19,7 @@ class GalleryViewHolder(view: View, listener: (View.OnClickListener)) : Recycler
     val image = view.galleryImage
 
     fun bind(movieImage: MovieImage) {
-        Glide.with(image).load(THUMB_PATH + movieImage.file_path).into(image)
+        image.loadImg(THUMB_PATH + movieImage.file_path)
     }
 
 }

@@ -1,7 +1,6 @@
 package br.com.gdgbrasilia.meetup.app.view.fragments
 
 import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -10,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import br.com.gdgbrasilia.meetup.R
 import br.com.gdgbrasilia.meetup.app.model.Genre
+import br.com.gdgbrasilia.meetup.app.util.extensions.getViewModel
 import br.com.gdgbrasilia.meetup.app.view.adapters.ThumbAdapter
 import br.com.gdgbrasilia.meetup.app.view.viewmodel.MovieViewModel
 import kotlinx.android.synthetic.main.fragment_genre.*
@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_genre.*
  */
 class GenreFragment : Fragment() {
 
-    private val movieVM by lazy { ViewModelProviders.of(this).get(MovieViewModel::class.java) }
+    private val movieVM by lazy { getViewModel(MovieViewModel::class.java) }
     private val movieAdapter by lazy { ThumbAdapter(mutableListOf(), activity!!, R.layout.holder_movie_complete) }
     private val movieLayoutManager by lazy { LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false) }
 

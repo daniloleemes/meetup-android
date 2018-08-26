@@ -1,7 +1,6 @@
 package br.com.gdgbrasilia.meetup.app.view.activities
 
 import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -10,6 +9,7 @@ import android.view.MenuItem
 import br.com.gdgbrasilia.meetup.R
 import br.com.gdgbrasilia.meetup.app.model.Movie
 import br.com.gdgbrasilia.meetup.app.model.enums.ListType
+import br.com.gdgbrasilia.meetup.app.util.extensions.getViewModel
 import br.com.gdgbrasilia.meetup.app.view.adapters.ThumbAdapter
 import br.com.gdgbrasilia.meetup.app.view.components.EndlessRecyclerScrollListener
 import br.com.gdgbrasilia.meetup.app.view.viewmodel.MovieViewModel
@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.activity_see_more.*
 
 class SeeMoreActivity : AppCompatActivity() {
 
-    private val movieVM by lazy { ViewModelProviders.of(this).get(MovieViewModel::class.java) }
+    private val movieVM by lazy { getViewModel(MovieViewModel::class.java) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

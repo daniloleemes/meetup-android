@@ -10,6 +10,10 @@ fun <T : ViewModel> Fragment.getActivityViewModel(type: Class<T>): T {
     return ViewModelProviders.of(activity!!).get(type)
 }
 
+fun <T : ViewModel> Fragment.getViewModel(type: Class<T>): T {
+    return ViewModelProviders.of(this).get(type)
+}
+
 fun Fragment.checkLocationPermission(): Boolean {
     return if (isAdded) {
         activity!!.isPermissionGranted(activity!!, Manifest.permission.ACCESS_COARSE_LOCATION) ||
