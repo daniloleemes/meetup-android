@@ -1,4 +1,4 @@
-package br.com.gdgbrasilia.meetup.app.providers
+package br.com.gdgbrasilia.meetup.app.data.providers
 
 import android.content.res.AssetFileDescriptor
 import android.database.Cursor

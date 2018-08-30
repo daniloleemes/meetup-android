@@ -13,7 +13,7 @@ import android.provider.DocumentsContract
 import android.provider.MediaStore
 import android.util.Log
 import android.webkit.MimeTypeMap
-import br.com.gdgbrasilia.meetup.app.providers.LocalStorageProvider
+import br.com.gdgbrasilia.meetup.app.data.providers.LocalStorageProvider
 import java.io.File
 import java.io.FileFilter
 import java.text.DecimalFormat

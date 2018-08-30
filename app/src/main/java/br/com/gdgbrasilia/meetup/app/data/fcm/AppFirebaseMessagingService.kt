@@ -1,4 +1,4 @@
-package br.com.gdgbrasilia.meetup.app.fcm
+package br.com.gdgbrasilia.meetup.app.data.fcm
 
 import android.util.Log
 import com.google.firebase.messaging.FirebaseMessagingService
